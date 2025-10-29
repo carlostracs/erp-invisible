@@ -1,0 +1,16 @@
+# CODEOWNERS para ERP Invisible
+# Estos usuarios serán automáticamente solicitados para review en PRs
+
+# Propietario por defecto de todo el código
+* @carlostracs
+
+# Archivos de configuración críticos
+/.github/ @carlostracs
+/Dockerfile @carlostracs
+/docker-compose.yml @carlostracs
+/requirements.txt @carlostracs
+
+# Documentación
+/README.md @carlostracs
+/CONTRIBUTING.md @carlostracs
+/CHANGELOG.md @carlostracs
