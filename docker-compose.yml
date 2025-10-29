@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mcp-odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: erp-invisible
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge
